@@ -52,13 +52,19 @@ if (isset($_POST['bsimpan'])) {
 		//ubah data
 
 		// cek apakah user pilih file/gambar atau tidak 
-		if ($_FILES['file']['error'] === 4) {
-			$file = $vfile;
+		if (!isset($_FILES['file']) || $_FILES['file']['error'] == UPLOAD_ERR_NO_FILE) {
+			$ubah = mysqli_query($koneksi, "UPDATE tbl_surat_masuk SET 
+												no_surat 			= '$_POST[no_surat]',
+												tanggal_surat		= '$_POST[tanggal_surat]',
+												id_kategori 		= '$_POST[id_kategori]',
+												perihal 			= '$_POST[perihal]',
+												kepada_surat_masuk 	= '$_POST[kepada_surat_masuk]',
+												pic_surat_masuk 	= '$_POST[pic_surat_masuk]',
+												id_departemen 		= '$_POST[id_departemen]'
+											where id_surat_masuk 	= '$_GET[id]' ");
 		} else {
 			$file = upload();
-		}
-
-		$ubah = mysqli_query($koneksi, "UPDATE tbl_surat_masuk SET 
+			$ubah = mysqli_query($koneksi, "UPDATE tbl_surat_masuk SET 
 												no_surat 			= '$_POST[no_surat]',
 												tanggal_surat		= '$_POST[tanggal_surat]',
 												id_kategori 		= '$_POST[id_kategori]',
@@ -68,6 +74,8 @@ if (isset($_POST['bsimpan'])) {
 												id_departemen 		= '$_POST[id_departemen]',
 												file 				= '$file'
 											where id_surat_masuk 	= '$_GET[id]' ");
+		}
+
 
 		if ($ubah) {
 			echo "<script>
@@ -171,6 +179,7 @@ if (isset($_POST['bsimpan'])) {
 			<div class="form-group">
 				<label for="file">Pilih File</label>
 				<input type="file" class="form-control" id="file" name="file" value="<?= @$vfile ?>">
+				<a href="file/<?= @$vfile ?>" target="$_blank"> Lihat file </a>
 			</div>
 
 			<button type="submit" name="bsimpan" class="btn btn-info">Simpan</button>
