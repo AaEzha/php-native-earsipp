@@ -7,26 +7,28 @@
 			<div class="btn-group" role="group" aria-label="First group">
 				<a class="btn btn-primary" href="?halaman=surat_masuk&hal=tambahdata" role="button">Tambah Data</a>
 			</div>
-			<div class="input-group">
+			<!-- <div class="input-group">
 				<div class="input-group-text" id="btnGroupAddon2">?</div>
 				<input type="search" class="form-control header-search" placeholder="Cari Nomor Surat&hellip;" tabindex="1">
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<div class="container">
-		<table class="table table-borderd table-hovered table-striped" cellspacing="0" width="100%">
-			<tr>
-				<th>No</th>
-				<th>No Surat</th>
-				<th>Tanggal Surat</th>
-				<th>Kategori</th>
-				<th>Perihal</th>
-				<th>Kepada</th>
-				<th>PIC</th>
-				<th>Departemen</th>
-				<th>File</th>
-				<th>Aksi</th>
-			</tr>
+		<table class="table table-borderd table-hovered table-striped" cellspacing="0" width="100%" id="myTable">
+			<thead>
+				<tr>
+					<th>No</th>
+					<th>No Surat</th>
+					<th>Tanggal Surat</th>
+					<th>Kategori</th>
+					<th>Perihal</th>
+					<th>Kepada</th>
+					<th>PIC</th>
+					<th>Departemen</th>
+					<th>File</th>
+					<th>Aksi</th>
+				</tr>
+			</thead>
 			<?php
 			$tampil = mysqli_query($koneksi, "
     				  SELECT 

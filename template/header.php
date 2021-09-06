@@ -32,9 +32,10 @@ if (empty($_SESSION['id_user']) or empty($_SESSION['username'])) {
   </script>
   <!-- Dashboard Core -->
   <link href="./assets/css/dashboard.css" rel="stylesheet" />
-  <link href="./assets/dataTables/datatables.min.css" rel="stylesheet" />
-  <script src="./assets/js/dashboard.js"></script>
-  <script src="./assets/dataTables/datatables.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.3.1/jszip-2.5.0/dt-1.11.1/b-2.0.0/b-colvis-2.0.0/b-html5-2.0.0/b-print-2.0.0/datatables.min.css"/>
+ 
+  
 </head>
 
 <div class="page">

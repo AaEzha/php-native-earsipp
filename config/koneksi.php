@@ -6,7 +6,7 @@
 	$server 	= "localhost"; //Nama Server
 	$user 		= "root"; //username database server
 	$pass		= ""; //password database server
-	$database 	= "dbarsip"; //Nama Database
+	$database 	= "db_arsip"; //Nama Database
 
 	//koneksi database
 	$koneksi = mysqli_connect($server, $user, $pass, $database) or die(mysqli_error($koneksi));
